@@ -28,7 +28,7 @@ class Result {
   final String? name;
   final double? latitude;
   final double? longitude;
-  final int? elevation;
+  final double? elevation;
   final String? featureCode;
   final String? countryCode;
   final int? admin1Id;

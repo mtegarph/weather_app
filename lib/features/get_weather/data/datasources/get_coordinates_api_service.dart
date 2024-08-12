@@ -14,7 +14,7 @@ class GetcoorinatesApiServiceImpl implements GetCoordinatesApiService {
   Future<GetCoordinate> getCoordinates(String name) async {
     try {
       final response = await dio.get(
-        'https://geocoding-api.open-meteo.com/v1/searchh?name=$name&count=1',
+        'https://geocoding-api.open-meteo.com/v1/search?name=$name&count=1',
       );
       return GetCoordinate.fromJson(response.data);
     } catch (e) {

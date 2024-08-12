@@ -13,8 +13,8 @@ class DashboardLoading extends DashboardState {}
 
 class DashboardLoaded extends DashboardState {
   final GetWeatherEntity weather;
-
-  const DashboardLoaded({required this.weather});
+  final String cityName;
+  const DashboardLoaded({required this.weather, required this.cityName});
 }
 
 class DashboardError extends DashboardState {

@@ -9,5 +9,6 @@ abstract class DashboardEvent extends Equatable {
 
 class GetWeatherEvent extends DashboardEvent {
   final ParameterWeather parameter;
-  const GetWeatherEvent({required this.parameter});
+  final String cityName;
+  const GetWeatherEvent({required this.parameter, required this.cityName});
 }

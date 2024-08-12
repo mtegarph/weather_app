@@ -5,7 +5,7 @@ class GetWeatherEntity {
   final int? utcOffsetSeconds;
   final String? timezone;
   final String? timezoneAbbreviation;
-  final int? elevation;
+  final double? elevation;
   final CurrentWeatherUnits? currentWeatherUnits;
   final CurrentWeather? currentWeather;
 
@@ -28,7 +28,7 @@ class GetWeatherEntity {
     int? utcOffsetSeconds,
     String? timezone,
     String? timezoneAbbreviation,
-    int? elevation,
+    double? elevation,
     CurrentWeatherUnits? currentWeatherUnits,
     CurrentWeather? currentWeather,
   }) =>
@@ -48,7 +48,7 @@ class GetWeatherEntity {
 class CurrentWeather {
   final String? time;
   final int? interval;
-  final int? temperature;
+  final double? temperature;
   final double? windspeed;
   final int? winddirection;
   final int? isDay;
@@ -67,7 +67,7 @@ class CurrentWeather {
   CurrentWeather copyWith({
     String? time,
     int? interval,
-    int? temperature,
+    double? temperature,
     double? windspeed,
     int? winddirection,
     int? isDay,

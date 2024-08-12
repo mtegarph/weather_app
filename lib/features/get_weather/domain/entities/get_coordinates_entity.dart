@@ -3,7 +3,7 @@ class CoordinateEntity {
   final String? name;
   final double? latitude;
   final double? longitude;
-  final int? elevation;
+  final double? elevation;
   final String? featureCode;
   final String? countryCode;
   final int? admin1Id;
@@ -34,7 +34,7 @@ class CoordinateEntity {
     String? name,
     double? latitude,
     double? longitude,
-    int? elevation,
+    double? elevation,
     String? featureCode,
     String? countryCode,
     int? admin1Id,

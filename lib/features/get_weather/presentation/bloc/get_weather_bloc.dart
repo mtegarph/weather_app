@@ -15,6 +15,8 @@ class GetWeatherBloc extends Bloc<GetWeatherEvent, GetWeatherState> {
 
   Future<void> _getCoordinate(
       GetCoordinateeEvent event, Emitter<GetWeatherState> emit) async {
+    print('getCoordinate');
+    emit(GetWeatherLoading());
     final result = await getCoordinateUsecase.call(
       params: event.parameter,
     );

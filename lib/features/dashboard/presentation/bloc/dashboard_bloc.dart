@@ -21,7 +21,8 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
 
     result.fold(
       (failure) => emit(DashboardError(message: failure.message)),
-      (weather) => emit(DashboardLoaded(weather: weather)),
+      (weather) =>
+          emit(DashboardLoaded(weather: weather, cityName: event.cityName)),
     );
   }
 }

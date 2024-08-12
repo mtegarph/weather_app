@@ -5,7 +5,7 @@ class GetWeatherModel {
   final int? utcOffsetSeconds;
   final String? timezone;
   final String? timezoneAbbreviation;
-  final int? elevation;
+  final double? elevation;
   final CurrentWeatherUnitsModel? currentWeatherUnits;
   final CurrentWeatherModel? currentWeather;
 
@@ -28,7 +28,7 @@ class GetWeatherModel {
     int? utcOffsetSeconds,
     String? timezone,
     String? timezoneAbbreviation,
-    int? elevation,
+    double? elevation, // Change to double
     CurrentWeatherUnitsModel? currentWeatherUnits,
     CurrentWeatherModel? currentWeather,
   }) =>
@@ -39,7 +39,7 @@ class GetWeatherModel {
         utcOffsetSeconds: utcOffsetSeconds ?? this.utcOffsetSeconds,
         timezone: timezone ?? this.timezone,
         timezoneAbbreviation: timezoneAbbreviation ?? this.timezoneAbbreviation,
-        elevation: elevation ?? this.elevation,
+        elevation: elevation ?? this.elevation, // Change to double
         currentWeatherUnits: currentWeatherUnits ?? this.currentWeatherUnits,
         currentWeather: currentWeather ?? this.currentWeather,
       );
@@ -52,7 +52,7 @@ class GetWeatherModel {
         utcOffsetSeconds: json["utc_offset_seconds"],
         timezone: json["timezone"],
         timezoneAbbreviation: json["timezone_abbreviation"],
-        elevation: json["elevation"],
+        elevation: json["elevation"]?.toDouble(), // Convert to double
         currentWeatherUnits: json["current_weather_units"] == null
             ? null
             : CurrentWeatherUnitsModel.fromJson(json["current_weather_units"]),
@@ -77,7 +77,7 @@ class GetWeatherModel {
 class CurrentWeatherModel {
   final String? time;
   final int? interval;
-  final int? temperature;
+  final double? temperature;
   final double? windspeed;
   final int? winddirection;
   final int? isDay;
@@ -96,8 +96,8 @@ class CurrentWeatherModel {
   CurrentWeatherModel copyWith({
     String? time,
     int? interval,
-    int? temperature,
-    double? windspeed,
+    double? temperature, // Change to double
+    double? windspeed, // Change to double
     int? winddirection,
     int? isDay,
     int? weathercode,
@@ -105,8 +105,8 @@ class CurrentWeatherModel {
       CurrentWeatherModel(
         time: time ?? this.time,
         interval: interval ?? this.interval,
-        temperature: temperature ?? this.temperature,
-        windspeed: windspeed ?? this.windspeed,
+        temperature: temperature ?? this.temperature, // Change to double
+        windspeed: windspeed ?? this.windspeed, // Change to double
         winddirection: winddirection ?? this.winddirection,
         isDay: isDay ?? this.isDay,
         weathercode: weathercode ?? this.weathercode,
@@ -116,8 +116,8 @@ class CurrentWeatherModel {
       CurrentWeatherModel(
         time: json["time"],
         interval: json["interval"],
-        temperature: json["temperature"],
-        windspeed: json["windspeed"]?.toDouble(),
+        temperature: json["temperature"]?.toDouble(), // Convert to double
+        windspeed: json["windspeed"]?.toDouble(), // Convert to double
         winddirection: json["winddirection"],
         isDay: json["is_day"],
         weathercode: json["weathercode"],
