@@ -6,8 +6,8 @@ class GetWeatherModel {
   final String? timezone;
   final String? timezoneAbbreviation;
   final int? elevation;
-  final CurrentWeatherUnits? currentWeatherUnits;
-  final CurrentWeather? currentWeather;
+  final CurrentWeatherUnitsModel? currentWeatherUnits;
+  final CurrentWeatherModel? currentWeather;
 
   GetWeatherModel({
     this.latitude,
@@ -29,8 +29,8 @@ class GetWeatherModel {
     String? timezone,
     String? timezoneAbbreviation,
     int? elevation,
-    CurrentWeatherUnits? currentWeatherUnits,
-    CurrentWeather? currentWeather,
+    CurrentWeatherUnitsModel? currentWeatherUnits,
+    CurrentWeatherModel? currentWeather,
   }) =>
       GetWeatherModel(
         latitude: latitude ?? this.latitude,
@@ -55,10 +55,10 @@ class GetWeatherModel {
         elevation: json["elevation"],
         currentWeatherUnits: json["current_weather_units"] == null
             ? null
-            : CurrentWeatherUnits.fromJson(json["current_weather_units"]),
+            : CurrentWeatherUnitsModel.fromJson(json["current_weather_units"]),
         currentWeather: json["current_weather"] == null
             ? null
-            : CurrentWeather.fromJson(json["current_weather"]),
+            : CurrentWeatherModel.fromJson(json["current_weather"]),
       );
 
   Map<String, dynamic> toJson() => {
@@ -74,7 +74,7 @@ class GetWeatherModel {
       };
 }
 
-class CurrentWeather {
+class CurrentWeatherModel {
   final String? time;
   final int? interval;
   final int? temperature;
@@ -83,7 +83,7 @@ class CurrentWeather {
   final int? isDay;
   final int? weathercode;
 
-  CurrentWeather({
+  CurrentWeatherModel({
     this.time,
     this.interval,
     this.temperature,
@@ -93,7 +93,7 @@ class CurrentWeather {
     this.weathercode,
   });
 
-  CurrentWeather copyWith({
+  CurrentWeatherModel copyWith({
     String? time,
     int? interval,
     int? temperature,
@@ -102,7 +102,7 @@ class CurrentWeather {
     int? isDay,
     int? weathercode,
   }) =>
-      CurrentWeather(
+      CurrentWeatherModel(
         time: time ?? this.time,
         interval: interval ?? this.interval,
         temperature: temperature ?? this.temperature,
@@ -112,7 +112,8 @@ class CurrentWeather {
         weathercode: weathercode ?? this.weathercode,
       );
 
-  factory CurrentWeather.fromJson(Map<String, dynamic> json) => CurrentWeather(
+  factory CurrentWeatherModel.fromJson(Map<String, dynamic> json) =>
+      CurrentWeatherModel(
         time: json["time"],
         interval: json["interval"],
         temperature: json["temperature"],
@@ -133,7 +134,7 @@ class CurrentWeather {
       };
 }
 
-class CurrentWeatherUnits {
+class CurrentWeatherUnitsModel {
   final String? time;
   final String? interval;
   final String? temperature;
@@ -142,7 +143,7 @@ class CurrentWeatherUnits {
   final String? isDay;
   final String? weathercode;
 
-  CurrentWeatherUnits({
+  CurrentWeatherUnitsModel({
     this.time,
     this.interval,
     this.temperature,
@@ -152,7 +153,7 @@ class CurrentWeatherUnits {
     this.weathercode,
   });
 
-  CurrentWeatherUnits copyWith({
+  CurrentWeatherUnitsModel copyWith({
     String? time,
     String? interval,
     String? temperature,
@@ -161,7 +162,7 @@ class CurrentWeatherUnits {
     String? isDay,
     String? weathercode,
   }) =>
-      CurrentWeatherUnits(
+      CurrentWeatherUnitsModel(
         time: time ?? this.time,
         interval: interval ?? this.interval,
         temperature: temperature ?? this.temperature,
@@ -171,8 +172,8 @@ class CurrentWeatherUnits {
         weathercode: weathercode ?? this.weathercode,
       );
 
-  factory CurrentWeatherUnits.fromJson(Map<String, dynamic> json) =>
-      CurrentWeatherUnits(
+  factory CurrentWeatherUnitsModel.fromJson(Map<String, dynamic> json) =>
+      CurrentWeatherUnitsModel(
         time: json["time"],
         interval: json["interval"],
         temperature: json["temperature"],

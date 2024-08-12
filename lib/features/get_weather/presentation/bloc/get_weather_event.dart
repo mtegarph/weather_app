@@ -6,3 +6,8 @@ abstract class GetWeatherEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+class GetCoordinateeEvent extends GetWeatherEvent {
+  final ParameterCoordinate parameter;
+  const GetCoordinateeEvent({required this.parameter});
+}

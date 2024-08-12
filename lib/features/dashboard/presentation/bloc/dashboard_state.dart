@@ -1,9 +1,24 @@
 part of 'dashboard_bloc.dart';
 
 abstract class DashboardState extends Equatable {
-  const DashboardState();  
+  const DashboardState();
 
   @override
   List<Object> get props => [];
 }
+
 class DashboardInitial extends DashboardState {}
+
+class DashboardLoading extends DashboardState {}
+
+class DashboardLoaded extends DashboardState {
+  final GetWeatherEntity weather;
+
+  const DashboardLoaded({required this.weather});
+}
+
+class DashboardError extends DashboardState {
+  final String message;
+
+  const DashboardError({required this.message});
+}

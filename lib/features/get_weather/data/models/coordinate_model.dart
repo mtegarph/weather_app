@@ -1,5 +1,3 @@
-import 'package:weather_app/features/get_weather/domain/entities/get_coordinates_entity.dart';
-
 class GetCoordinate {
   final List<Result>? results;
   final double? generationtimeMs;
@@ -25,7 +23,7 @@ class GetCoordinate {
       };
 }
 
-class Result extends CoordinateEntity {
+class Result {
   final int? id;
   final String? name;
   final double? latitude;

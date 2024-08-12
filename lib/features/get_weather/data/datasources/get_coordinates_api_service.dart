@@ -8,9 +8,10 @@ abstract class GetCoordinatesApiService {
 }
 
 class GetcoorinatesApiServiceImpl implements GetCoordinatesApiService {
+  final Dio dio;
+  GetcoorinatesApiServiceImpl({required this.dio});
   @override
   Future<GetCoordinate> getCoordinates(String name) async {
-    final dio = Dio();
     try {
       final response = await dio.get(
         'https://geocoding-api.open-meteo.com/v1/searchh?name=$name&count=1',
