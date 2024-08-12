@@ -8,6 +8,7 @@ class GetCoordinatesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController cityNameController = TextEditingController();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Cari Kota'),
@@ -31,6 +32,7 @@ class GetCoordinatesPage extends StatelessWidget {
               children: [
                 Expanded(
                   child: TextField(
+                    controller: cityNameController,
                     autofocus: true,
                     decoration: const InputDecoration(
                       hintText: 'Masukkan nama kota',
@@ -45,7 +47,9 @@ class GetCoordinatesPage extends StatelessWidget {
                 IconButton(
                   icon: const Icon(Icons.search),
                   onPressed: () {
-                    // Implement search functionality here
+                    context.read<GetWeatherBloc>().add(GetCoordinateeEvent(
+                        parameter: ParameterCoordinate(
+                            name: cityNameController.text)));
                   },
                 ),
               ],
