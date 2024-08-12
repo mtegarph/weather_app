@@ -37,14 +37,16 @@ class DashboardPage extends StatelessWidget {
               builder: (context) => const GetCoordinatesPage(),
             ),
           );
-          context.read<DashboardBloc>().add(
-                GetWeatherEvent(
-                    parameter: ParameterWeather(
-                      latitude: result.latitude.toString(),
-                      longitude: result.longitude.toString(),
-                    ),
-                    cityName: result.name.toString()),
-              );
+          if (context.mounted) {
+            context.read<DashboardBloc>().add(
+                  GetWeatherEvent(
+                      parameter: ParameterWeather(
+                        latitude: result.latitude.toString(),
+                        longitude: result.longitude.toString(),
+                      ),
+                      cityName: result.name.toString()),
+                );
+          }
         },
         child: const Icon(Icons.search),
       ),
