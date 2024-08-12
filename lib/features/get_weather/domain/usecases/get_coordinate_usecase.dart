@@ -13,6 +13,6 @@ class GetCoordinateUsecase
 
   @override
   Future<Either<Failure, CoordinateEntity>> call({params}) {
-    return repo.getWeather(params ?? const ParameterCoordinate());
+    return repo.getCoordinates(params ?? const ParameterCoordinate());
   }
 }

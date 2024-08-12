@@ -4,6 +4,6 @@ import 'package:weather_app/core/parameter/parameter.dart';
 import 'package:weather_app/features/get_weather/domain/entities/get_coordinates_entity.dart';
 
 abstract class GetWeatherRepo {
-  Future<Either<Failure, CoordinateEntity>> getWeather(
+  Future<Either<Failure, CoordinateEntity>> getCoordinates(
       ParameterCoordinate parameter);
 }

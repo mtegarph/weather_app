@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:dartz/dartz.dart';
 import 'package:weather_app/core/error/exception.dart';
 import 'package:weather_app/core/error/failure.dart';
@@ -12,10 +10,14 @@ class GetWeatherRepoImpl extends GetWeatherRepo {
   final GetCoordinatesApiService apiService;
   GetWeatherRepoImpl({required this.apiService});
   @override
-  Future<Either<Failure, CoordinateEntity>> getWeather(
+  Future<Either<Failure, CoordinateEntity>> getCoordinates(
       ParameterCoordinate parameter) async {
     try {
+      // Memanggil API service untuk mendapatkan koordinat
+
       final result = await apiService.getCoordinates(parameter.name.toString());
+      // Memetakan hasil API ke CoordinateEntity
+
       final data = CoordinateEntity(
         admin1: result.results?[0].admin1,
         admin1Id: result.results?[0].admin1Id,
@@ -33,8 +35,10 @@ class GetWeatherRepoImpl extends GetWeatherRepo {
       );
       return Right(data);
     } catch (e) {
-      if (e is SocketException) {
-        return const Left(ConnectionFailure('No internet connection'));
+      // Menangani berbagai jenis error
+      if (e is ConnectionFailure) {
+        return const Left(ConnectionFailure(
+            'Terjadi Kesalahan, Pastikan anda terhubung ke internet'));
       } else if (e is ServerException) {
         return const Left(ServerFailure('Server error occurred'));
       } else {

@@ -68,7 +68,7 @@ class DashboardPage extends StatelessWidget {
                             style: TextStyle(fontSize: 50),
                           ),
                           Text(
-                            "Silahkan Pilih Kota!",
+                            "Memuat Data",
                             style: TextStyle(fontSize: 30),
                           ),
                           CircularProgressIndicator()
@@ -113,8 +113,24 @@ class DashboardPage extends StatelessWidget {
                     ),
                   );
                 } else if (state is DashboardError) {
-                  return Center(
-                    child: Text(state.message),
+                  return SizedBox(
+                    width: double.infinity,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          errorIcon,
+                          style: TextStyle(fontSize: 50),
+                        ),
+                        Text(
+                          state.message,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
                   );
                 }
                 return const SizedBox(
